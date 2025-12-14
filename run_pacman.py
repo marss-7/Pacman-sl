@@ -13,3 +13,4 @@ for path in [PROJECT_ROOT, PACMAN_DIR]:
 os.chdir(PACMAN_DIR)
 
 runpy.run_path("pacman.py", run_name="__main__")
+    
