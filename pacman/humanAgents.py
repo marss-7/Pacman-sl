@@ -1,1 +1,1 @@
-from ml.humanAgents import humanAgent
+from ml.HumanAgents import humanAgent

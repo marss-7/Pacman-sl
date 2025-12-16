@@ -30,9 +30,7 @@ def calculate_food_features(row, pacman_x, pacman_y):
 
     return food_count, min_food_dist
 
-clean_rows = []
-for row in rows:
-    
+def good_row(row):
     #ghost info
     ghost1_scared = scared(row["ghost_scared_timers"][0])
     ghost2_scared = scared(row["ghost_scared_timers"][1])
@@ -52,6 +50,12 @@ for row in rows:
              "ghost1_dist": ghost1_dist, "ghost1_scared": ghost1_scared, "ghost2_dist": ghost2_dist, "ghost2_scared": ghost2_scared,
              "dist_nearest_food": food_distance, "dist_nearest_capsule": capsule_distance, "num_food_left": food_left,
              "score": row["score"], "Action": row["Action"]}
+    return clean
+
+clean_rows = []
+
+for row in rows:
+    clean = good_row(row)
     clean_rows.append(clean)
 
-print(clean_rows[400])
+clean_df = pd.DataFrame(clean_rows)
