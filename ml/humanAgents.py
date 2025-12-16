@@ -9,40 +9,35 @@ DATA_PATH = os.path.join(
 )
 
 def extract_snapshot(state):
-    """
-    Convert a Pacman GameState into a raw, serializable snapshot.
-    Returns a dictionary of plain Python objects.
-    """
-
     # Positions
     pacman_pos = state.getPacmanPosition()
     ghost_positions = state.getGhostPositions()
 
-    # Ghost scared timers
+    #Ghost timers
     ghost_states = state.getGhostStates()
     scared_timers = [ghost.scaredTimer for ghost in ghost_states]
 
-    # Food grid → 2D list of 0/1
+    #Food grid to list of 0/1
     food_grid = state.getFood()
     food_2d = [
         [1 if food_grid[x][y] else 0 for y in range(food_grid.height)]
         for x in range(food_grid.width)
     ]
 
-    # Wall grid → 2D list of 0/1
+    #Wall grid to list of 0/1
     wall_grid = state.getWalls()
     walls_2d = [
         [1 if wall_grid[x][y] else 0 for y in range(wall_grid.height)]
         for x in range(wall_grid.width)
     ]
 
-    # Capsules
+    #Capsules
     capsules = state.getCapsules()
 
-    # Score
+    #Score
     score = state.getScore()
 
-    # Legal actions
+    #Legal actions
     legal_actions = state.getLegalActions()
 
     return {
@@ -56,7 +51,7 @@ def extract_snapshot(state):
         "legal_actions": legal_actions,
     }
 
-
+#Same as keyboard agents but returns the rows from winning games!
 class humanAgent(Agent):
     def __init__(self, **args):
         self.state_actions = []

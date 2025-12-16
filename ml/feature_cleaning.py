@@ -30,6 +30,7 @@ def calculate_food_features(row, pacman_x, pacman_y):
 
     return food_count, min_food_dist
 
+#useful features for training
 def good_row(row):
     #ghost info
     ghost1_scared = scared(row["ghost_scared_timers"][0])

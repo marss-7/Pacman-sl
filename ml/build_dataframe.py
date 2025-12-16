@@ -12,6 +12,7 @@ with open(DATA_PATH, "rb") as f:
 
 rows = []
 
+#Turn the raw data into an organized dict
 for i in range(len(data)):
     episode = data[i]
     for t in range(len(episode)):

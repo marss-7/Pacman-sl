@@ -5,6 +5,8 @@ import os
 import sys
 import pickle
 
+#Code fixed by deepseek, was having a problem with the imports for pacman.py to read
+
 class SupervisedAgent(Agent):
 
     def __init__(self):
@@ -25,7 +27,7 @@ class SupervisedAgent(Agent):
         from HumanAgents import extract_snapshot
         import pandas as pd
 
-        # Store for use in other methods
+        #Store for use in other methods
         self.distance = distance
         self.scared = scared
         self.calculate_food_features = calculate_food_features
@@ -75,7 +77,7 @@ class SupervisedAgent(Agent):
         return self.good_row(row)
 
     def getAction(self, state):
-        # Load model on first call
+        #Load model on first call
         if not self._model_loaded:
             self._load_model()
         
